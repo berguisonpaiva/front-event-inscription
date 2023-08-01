@@ -18,7 +18,6 @@ export const useAuth = () => ({
 
     register: async (data: UserData) => {
         const response = await axios.post(API_URL +'/register', data);
-        console.log(response.data)
         return response.data;
     },
 });
