@@ -86,7 +86,7 @@ export function EventComp({eventData}: EventProps) {
               </div>}
           </button>
           <Link
-          to={`/inscription/${eventData.id}`}
+          to={`/inscriptions/${eventData.id}`}
           className="inline-flex gap-2 w-full justify-center items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-green rounded-lg focus:ring-4 focus:outline-none  bg-slate-600 hover:bg-slate-700 focus:ring-slate-800"
         >
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">

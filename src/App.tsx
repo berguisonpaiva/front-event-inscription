@@ -1,22 +1,23 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { Home } from "./pages/Home"
-import { Inscritions } from "./pages/Incriptions"
 import { Header } from "./components/Header"
+import { Home } from "./pages/Home"
+import { IncriptionPage } from "./pages/IncriptionPage"
 
 
-function App() {
+
+export default function App() {
   return (
     <div>
     <Header />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />         
-          <Route path="/iscritions/:id" element={<Inscritions />} />         
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/inscriptions/:id" element={<IncriptionPage />} />
+      </Routes>
+    </BrowserRouter>
+  </div>
+  
   
   )
 }
 
-export default App
