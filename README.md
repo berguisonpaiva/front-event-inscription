@@ -1,27 +1,59 @@
-# React + TypeScript + Vite
+## Front EventIscription
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tecnologias Utilizadas
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## Instalação
+1. Clone o repositório ou faça o download do código fonte.
+```
+git clone git@github.com:berguisonpaiva/front-event-inscription.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Acesse o diretório do projeto.
+```
+cd front-event-inscription
+```
+
+3. Instale as dependências do projeto.
+
+Com npm:
+```
+npm install
+```
+
+Com Yarn:
+```
+yarn install
+```
+
+## Rodando o Projeto
+Com npm:
+```
+npm run dev
+```
+
+Com Yarn:
+```
+yarn dev
+```
+
+O servidor de desenvolvimento será iniciado e o projeto estará acessível em `http://localhost:5174`.
+
+## Build do Projeto
+Com npm:
+```
+npm run build
+```
+
+Com Yarn:
+```
+yarn build
+```
+
+Os arquivos de produção serão gerados na pasta `/dist`.
+
+## Personalizando o Projeto
+Você pode personalizar o projeto de acordo com suas necessidades. Os arquivos principais estão localizados na pasta `/src`.
