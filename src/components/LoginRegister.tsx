@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { UserData } from "../interface/UserData";
-import { InputForm } from "./InputForm";
+
 import { Card } from "./Card";
 
 interface ModalProps {
@@ -20,7 +20,7 @@ export function LoginRegister({ closeModal }: ModalProps) {
         email: "",
         password: "",
     });
-
+  
 
     const handleLogin = async () => {
         const { email, password } = userInput;
@@ -77,67 +77,84 @@ export function LoginRegister({ closeModal }: ModalProps) {
                     </button>
                 </div>
                 <form className="space-y-4 md:space-y-6" action="#">
-                    {isRegisterMode && (
-                        <>
-                            <InputForm
-                                name="Nome"
-                                type="text"
-                                value={userInput.name}
-                                onChange={(e) => setUserInput({ ...userInput, name: e.target.value })}
-                            />
-                            <InputForm
-                                name="CPF"
-                                type="text"
-                                value={userInput.cpf}
-                                onChange={(e) => setUserInput({ ...userInput, cpf: e.target.value })}
-                            />
-                        </>
-                    )}
+                {isRegisterMode && (
+                  <>
+                    <div>
+                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
+                      <input
+                        type="text"
+                        value={userInput.name}
+                        onChange={(e) => setUserInput({ ...userInput, name: e.target.value })}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cpf</label>
+                      <input
+                        type="text"
+                        value={userInput.cpf}
+                        onChange={(e) => setUserInput({ ...userInput, cpf: e.target.value })}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      />
+                    </div>
+                  </>
+                )}
 
-                    <InputForm
-                        name="Email"
-                        type="email"
-                        value={userInput.email}
-                        onChange={(e) => setUserInput({ ...userInput, email: e.target.value })}
-                    />
-                    <InputForm
-                        name="Password"
-                        type="password"
-                        value={userInput.password!}
-                        onChange={(e) => setUserInput({ ...userInput, password: e.target.value })}
-                        placeholder="••••••••"
-                    />
+                <div>
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value={userInput.email}
+                    onChange={(e) => setUserInput({ ...userInput, email: e.target.value })}
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    value={userInput.password}
+                    onChange={(e) => setUserInput({ ...userInput, password: e.target.value })}
+                    placeholder="••••••••"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+                </div>
+                {isRegisterMode ? (
+                  <button
+                    onClick={handleRegister}
+                    className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Registrar
+                  </button>
+                ) : (
+                  <button
+                  type="button" 
+                    onClick={handleLogin}
+                    className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Entrar
+                  </button>
+                )}
 
-                    {isRegisterMode ? (
-                        <button
-                            onClick={handleRegister}
-                            className="w-full text-white  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
-                        >
-                            Registrar
-                        </button>
-                    ) : (
-                        <button
-                            onClick={handleLogin}
-                            className="w-full text-white  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
-                        >
-                            Entrar
-                        </button>
-                    )}
-
-                    <p className="text-sm font-light text-gray-400">
-                        {isRegisterMode
-                            ? "Já tem uma conta?"
-                            : "Não tem uma conta ainda?"}{" "}
-                        <button
-                            onClick={() => setRegisterMode(!isRegisterMode)}
-                            className="font-medium text-primary-600 hover:underline text-primary-500"
-                        >
-                            {isRegisterMode ? "Fazer login" : "Inscrever-se"}
-                        </button>
-                    </p>
+                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                  {isRegisterMode
+                    ? "Já tem uma conta?"
+                    : "Não tem uma conta ainda?"}{" "}
+                  <button
+                  type="button" 
+                    onClick={() => setRegisterMode(!isRegisterMode)}
+                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  >
+                    {isRegisterMode ? "Fazer login" : "Inscrever-se"}
+                  </button>
+                </p>
                 </form>
             </div>
 
         </Card>
     );
-}
+                        }
