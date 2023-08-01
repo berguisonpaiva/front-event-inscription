@@ -2,8 +2,9 @@ import axios, { AxiosPromise } from 'axios'
 import { useQuery } from 'react-query';
 
 import { PaginateData } from '../interface/PaginateData';
+import { Api } from '../interface/Api';
 
-const API_URL = 'http://localhost:80/api';
+const API_URL = Api()
 
 const fetchData = async (  page: number|1, id: number | null,
    name: string | null): AxiosPromise<PaginateData> => {

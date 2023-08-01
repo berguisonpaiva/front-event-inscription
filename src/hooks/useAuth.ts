@@ -1,7 +1,8 @@
 import axios from "axios";
 import { UserData } from "../interface/UserData";
+import { Api } from "../interface/Api";
 
-const API_URL = 'http://localhost:80/api';
+const API_URL = Api()
 
 
 export const useAuth = () => ({

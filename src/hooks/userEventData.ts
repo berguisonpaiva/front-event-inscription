@@ -1,8 +1,9 @@
 import axios, { AxiosPromise } from 'axios'
 import { EventData } from '../interface/EventData';
 import { useQuery } from 'react-query';
+import { Api } from '../interface/Api';
 
-const API_URL = 'http://localhost:80/api';
+const API_URL = Api()
 
 const fetchData = async (): AxiosPromise<EventData[]> => {
     const response = await axios.get(API_URL +'/events');

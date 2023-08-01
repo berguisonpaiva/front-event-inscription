@@ -3,8 +3,9 @@ import { InscriptionInputData } from "../interface/InscriptionInputData";
 import { useMutation,useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import { ErrorData } from "../interface/ErrorData";
+import { Api } from "../interface/Api";
 
-const API_URL = 'http://localhost:80/api';
+const API_URL = Api()
 
 const postData = async (data: InscriptionInputData) => {
     
