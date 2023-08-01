@@ -17,43 +17,27 @@ git clone git@github.com:berguisonpaiva/front-event-inscription.git
 cd front-event-inscription
 ```
 
-3. Instale as dependências do projeto.
+3. Execute este comando para criar a imagem em sua máquina local e iniciar o contêiner. Você só precisa executar este comando na primeira vez e sempre que fizer alterações no arquivo docker-compose.yml.
 
-Com npm:
 ```
-npm install
-```
-
-Com Yarn:
-```
-yarn install
+docker-compose up --build --no-recreate -d
 ```
 
-## Rodando o Projeto
-Com npm:
+4. suba o container
 ```
-npm run dev
+docker-compose up -d
 ```
 
-Com Yarn:
+5. criar e iniciar o aplicativo
 ```
-yarn dev
+docker exec -it vite_docker sh
 ```
+
+6. Entramos no container e agora precisamos executar os comandos para instalar os pacotes do Node e iniciar o aplicativo.
+```
+npm i && npm run dev
+```
+
 
 O servidor de desenvolvimento será iniciado e o projeto estará acessível em `http://localhost:5174`.
 
-## Build do Projeto
-Com npm:
-```
-npm run build
-```
-
-Com Yarn:
-```
-yarn build
-```
-
-Os arquivos de produção serão gerados na pasta `/dist`.
-
-## Personalizando o Projeto
-Você pode personalizar o projeto de acordo com suas necessidades. Os arquivos principais estão localizados na pasta `/src`.
