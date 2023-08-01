@@ -3,6 +3,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { UserData } from "../interface/UserData";
 
 import { Card } from "./Card";
+import { ToastContainer, toast } from "react-toastify";
 
 interface ModalProps {
     closeModal(): void;
@@ -28,9 +29,28 @@ export function LoginRegister({ closeModal }: ModalProps) {
             const isLogged = await auth.signin(email, password);
 
             if (isLogged) {
+              toast.success('Sucesso', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
                 closeModal();
             } else {
-                alert("Não deu certo.");
+              toast.error('Erro no login', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             }
         }
     };
@@ -42,9 +62,28 @@ export function LoginRegister({ closeModal }: ModalProps) {
             const isLogged = await auth.register(user);
 
             if (isLogged) {
+              toast.success('Sucesso', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
                 closeModal();
             } else {
-                alert("Não deu certo.");
+              toast.error('Erro ao reagistar', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             }
         }
     };
@@ -153,6 +192,8 @@ export function LoginRegister({ closeModal }: ModalProps) {
                   </button>
                 </p>
                 </form>
+                
+            <ToastContainer />
             </div>
 
         </Card>
