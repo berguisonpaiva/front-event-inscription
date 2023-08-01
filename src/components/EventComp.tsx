@@ -7,10 +7,12 @@ import { Link } from "react-router-dom";
 import { LoginRegister } from "./LoginRegister";
 import { ToastContainer } from "react-toastify";
 import { useInscriptionDataMutate } from "../hooks/useInscriptionDataMutate";
+import 'react-toastify/dist/ReactToastify.css';
 interface EventProps {
     eventData: EventData;
 }
-export function Event( {eventData}: EventProps) {
+
+export function EventComp({eventData}: EventProps) {
     const { mutate: mutateInscription, isLoading } = useInscriptionDataMutate();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
