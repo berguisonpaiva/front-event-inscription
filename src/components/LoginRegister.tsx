@@ -51,7 +51,7 @@ export function LoginRegister({ closeModal }: ModalProps) {
 
     return (
         <Card>
-            <div>
+            <div  className="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <div className="flex items-start justify-between">
                     <h1 className="text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">
                         {isRegisterMode ? "Criar uma conta" : "Faça login em sua conta"}
@@ -91,8 +91,6 @@ export function LoginRegister({ closeModal }: ModalProps) {
                                 value={userInput.cpf}
                                 onChange={(e) => setUserInput({ ...userInput, cpf: e.target.value })}
                             />
-
-
                         </>
                     )}
 
